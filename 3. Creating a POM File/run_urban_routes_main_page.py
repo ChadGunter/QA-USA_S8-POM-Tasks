@@ -1,6 +1,8 @@
 import time
 from selenium import webdriver
-from urban_routes_main_page import UrbanRoutesPage  # Import the POM class
+from urban_routes_main_page import UrbanRoutesPage  # Import the POM classfrom selenium.webdriver.common.by import By
+
+class UrbanRoutesPage:
 
 
 def test_custom_bike_option():
