@@ -1,14 +1,13 @@
 from selenium.webdriver.common.by import By
 
-
 # Defining the page class, locators and method in the class
 class UrbanRoutesPage:
     # Locators as class attributes
     FROM_LOCATOR = (By.ID, 'from')
     TO_LOCATOR = (By.ID, 'to')
-    CUSTOM_OPTION_LOCATOR = ...
-    BIKE_ICON_LOCATOR = ...
-    BIKE_TEXT_LOCATOR = ...
+    CUSTOM_OPTION_LOCATOR = (By.XPATH, '//div[text()="Custom"]')
+    BIKE_ICON_LOCATOR = (By.XPATH, '//img[@src="/static/media/bike.fb41c762.svg"]')
+    BIKE_TEXT_LOCATOR = (By.XPATH, '//div[@class="results-text"]//div[@class="text"]')
 
     def __init__(self, driver):
         self.driver = driver  # Initialize the driver
@@ -32,4 +31,3 @@ class UrbanRoutesPage:
     def get_bike_text(self):
         # Return the "Bike" text
         return self.driver.find_element(*self.BIKE_TEXT_LOCATOR).text
-
