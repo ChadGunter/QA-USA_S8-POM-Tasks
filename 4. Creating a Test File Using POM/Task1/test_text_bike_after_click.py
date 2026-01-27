@@ -2,11 +2,10 @@ import time
 from selenium import webdriver
 from urban_routes_main_page import UrbanRoutesPage
 
-
 def test_custom_bike_option():
     driver = webdriver.Chrome()
     # Step 1: Open the app - update the URL after starting the server
-    driver.get('https://cnt-3caebb84-fe27-4fdd-b9d5-ab26217bd33c.containerhub.tripleten-services.com')
+    driver.get('https://cnt-9b7145d7-545f-489d-aef1-02d07e6149cd.containerhub.tripleten-services.com')
 
     # Create an instance of the page class
     urban_routes_page = UrbanRoutesPage(driver)

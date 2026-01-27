@@ -21,7 +21,7 @@ class UrbanRoutesPage:
         driver = webdriver.Chrome()
 
     # Update server URL
-        driver.get('https://cnt-4d00fe1b-6b10-42b0-ad42-a6ec6cd95f61.containerhub.tripleten-services.com')
+        driver.get('https://cnt-9b7145d7-545f-489d-aef1-02d07e6149cd.containerhub.tripleten-services.com')
         urban_routes_page = UrbanRoutesPage(driver)
         urban_routes_page.enter_from_location('East 2nd Street, 601')
         urban_routes_page.enter_to_location('1300 1st St')

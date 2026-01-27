@@ -6,11 +6,11 @@ class UrbanRoutesPage:
     # Locators as class attributes
     FROM_LOCATOR = (By.ID, 'from')
     TO_LOCATOR = (By.ID, 'to')
-    CUSTOM_OPTION_LOCATOR = (By.XPATH, '//div[@class="Custom"]')
-    DRIVE_ICON_LOCATOR = (By.XPATH, '//img[@src="/static/media/car.8a2b1ff5.svg"])[2]')
-    BOOK_BUTTON_LOCATOR = (By. XPATH, '//div[@class="BookButton"]')
-    CAMPING_LOCATOR = (By.XPATH, '//img[@src="/static/media/camping.075c6361.svg"]')
-    AUDI_TEXT_LOCATOR = (By.XPATH, '//div[@class="results-text"]//div[@class="text"]')
+    CUSTOM_OPTION_LOCATOR = (By.XPATH, '//div[text()="Custom"]')
+    DRIVE_ICON_LOCATOR = (By.XPATH, '(//img[@src="/static/media/car.8a2b1ff5.svg"])[2]')
+    BOOK_BUTTON_LOCATOR = (By. XPATH, '//button[@class="button round"]')
+    CAMPING_LOCATOR = (By.XPATH, '//div[contains(text(), "Camping")]')
+    AUDI_TEXT_LOCATOR = (By.XPATH, '//div[@class="drive-preview-title"]')
 
     def __init__(self, driver):
         self.driver = driver  # Initialize the driver
