@@ -1,14 +1,12 @@
 from selenium import webdriver
 from urban_routes_main_page import UrbanRoutesPage
 
-
 # Create a class for both tests
 class TestUrbanRoutes:
 
     def test_drive_custom_camping_option(self):
         driver = webdriver.Chrome()
-        driver.get('https://cnt-4990458e-afb1-45b1-881b-807316b878e8.containerhub.tripleten-services.com')
-
+        driver.get('https://cnt-7e264834-45d1-4993-9f07-b9ed3cd65443.containerhub.tripleten-services.com/')
         # Create an instance of the page class
         urban_routes_page = UrbanRoutesPage(driver)
 
@@ -27,7 +25,7 @@ class TestUrbanRoutes:
 
     def test_add_driver_license_custom_camping_option(self):
         driver = webdriver.Chrome()
-        driver.get('https://cnt-4990458e-afb1-45b1-881b-807316b878e8.containerhub.tripleten-services.com')
+        driver.get('https://cnt-7e264834-45d1-4993-9f07-b9ed3cd65443.containerhub.tripleten-services.com/')
 
         # Create an instance of the page class
         urban_routes_page = UrbanRoutesPage(driver)
@@ -36,8 +34,7 @@ class TestUrbanRoutes:
 
         # Choose camping car step to enter "From", "To" and to click "custom_option",
         # "drive_icon", "book button", and "camping"
-        urban_routes_page.choose_camping_car('East 2nd Street 601', '1300 1st St')
-        driver.implicitly_wait(3)
+        urban_routes_page.choose_camping_car('East 2nd Street, 601', '1300 1st St')
 
         # Adding driver license step to click "add driver's license";
         # to enter "first_name", "last_name", "date_of_birth", "number"; and
