@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import time
 
 
 # Defining the page class, locators and method in the class

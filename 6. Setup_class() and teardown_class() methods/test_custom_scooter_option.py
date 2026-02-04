@@ -2,40 +2,38 @@ from selenium import webdriver
 import time
 from urban_routes_main_page import UrbanRoutesPage
 
-
-# Create a class for both tests
 class TestUrbanRoutes:
 
-    # Initialize the Chrome driver once for the class
     @classmethod
     def setup_class(cls):
+        #Initialize the Chrome driver once for the class
         cls.driver = webdriver.Chrome()
 
-    def test_custom_bike_option(self):
-        self.driver.get('https://cnt-fb4ec96b-f6cc-4df2-9294-8ceeff8a9f63.containerhub.tripleten-services.com')
+    def test_custom_scooter_option(self):
+        self.driver.get('https://cnt-dff1bf6b-fa6c-447a-9f02-378f402b91a2.containerhub.tripleten-services.com')
         urban_routes_page = UrbanRoutesPage(self.driver)
         urban_routes_page.enter_locations('East 2nd Street 601', '1300 1st St')
         urban_routes_page.click_custom_option()
         time.sleep(2)
-        urban_routes_page.click_bike_icon()
+        urban_routes_page.click_scooter_icon()
         time.sleep(2)
-        actual_value = urban_routes_page.get_bike_text()
-        expected_value  = "Bike"
+        actual_value = urban_routes_page.get_scooter_text()
+        expected_value = "Scooter"
         assert expected_value in actual_value, f"Expected: '{expected_value}', but got '{actual_value}'"
 
-    def test_duration_custom_bike_option(self):
-        self.driver.get('https://cnt-fb4ec96b-f6cc-4df2-9294-8ceeff8a9f63.containerhub.tripleten-services.com')
+    def test_duration_custom_scooter_option(self)  :
+        self.driver.get('https://cnt-dff1bf6b-fa6c-447a-9f02-378f402b91a2.containerhub.tripleten-services.com')
         urban_routes_page = UrbanRoutesPage(self.driver)
         urban_routes_page.enter_locations('East 2nd Street 601', '1300 1st St')
         urban_routes_page.click_custom_option()
         time.sleep(2)
-        urban_routes_page.click_bike_icon()
+        urban_routes_page.click_scooter_icon()
         time.sleep(2)
         actual_value = urban_routes_page.get_duration_text()
         expected_value = "Duration"
         assert expected_value in actual_value, f"Expected: '{expected_value}', but got '{actual_value}'"
 
-    # Close the browser after all tests are done
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
+        @classmethod
+        def teardown_class(cls):
+            #Close the browser after all tests are done
+            cls.driver.quit()
