@@ -1,3 +1,4 @@
+import time
 from selenium.webdriver.common.by import By
 
 
@@ -7,6 +8,7 @@ class UrbanRoutesPage:
     FROM_LOCATOR = (By.ID, 'from')
     TO_LOCATOR = (By.ID, 'to')
     CUSTOM_OPTION_LOCATOR = (By.XPATH, '//div[text()="Custom"]')
+    SCOOTER_ICON_LOCATOR = (By.XPATH, '//img[@src="/static/media/scooter.cf9bb57e.svg"]')
     DRIVE_ICON_LOCATOR = (By.XPATH, '(//img[@src="/static/media/car.8a2b1ff5.svg"])[2]')
     BOOK_BUTTON_LOCATOR = (By.XPATH, '//button[@class="button round"]')
     CAMPING_LOCATOR = (By.XPATH, '//div[contains(text(),"Camping")]')
@@ -19,6 +21,7 @@ class UrbanRoutesPage:
     ADD_BUTTON_LOCATOR = (By.XPATH, '//form/div[2]/button[1]')
     ADD_A_DRIVER_LICENCE_TITLE_LOCATOR = (By.XPATH, '//div[contains(text(),"Add a driver")]')
     VERIFICATION_TEXT_LOCATOR = (By.XPATH, '//div[@class="section active"]//div[@style="margin-bottom: 30px;"]')
+    DURATION_TEXT_LOCATOR = (By.XPATH, '//div[contains(text(),"Duration")]')
 
     def __init__(self, driver):
         self.driver = driver  # Initialize the driver
@@ -38,6 +41,14 @@ class UrbanRoutesPage:
     def click_drive_icon(self):
         # Click Drive Icon
         self.driver.find_element(*self.DRIVE_ICON_LOCATOR).click()
+
+    def click_scooter_icon(self):
+        #Click Scooter Icon
+        self.driver.find_element(*self.SCOOTER_ICON_LOCATOR).click()
+
+    def get_duration_text(self):
+        #Return the duration text
+        return self.driver.find_element(*self.DURATION_TEXT_LOCATOR).text
 
     def click_book_button(self):
         # Click Book Button
@@ -85,9 +96,24 @@ class UrbanRoutesPage:
 
     # Step to enter "From", "To" and to click "custom_option", "drive_icon", "book button", and "camping"
     def choose_camping_car(self, from_text, to_text):
-        ...
+        self.enter_from_location(from_text)
+        self.enter_to_location(to_text)
+        self.click_custom_option()
+        time.sleep(2)
+        self.click_drive_icon()
+        time.sleep(2)
+        self.click_book_button()
+        time.sleep(2)
+        self.click_camping()
 
     # Step to click "add driver's license"; to enter "first_name", "last_name", "date_of_birth", "number"; and
     # to click "title" and "add button"
     def adding_driver_license(self, first_name, last_name, date_of_birth, number):
-        ...
+        self.click_add_driver_license()
+        self.enter_first_name(first_name)
+        self.enter_last_name(last_name)
+        self.enter_date_of_birth(date_of_birth)
+        self.enter_number(number)
+        self.click_title()
+        time.sleep(2)
+        self.click_add_button()
